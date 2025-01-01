@@ -1,13 +1,20 @@
-*   {
-
+* {
 }
 body {
-
 }
 .container {
-
 }
 
 .row {
-    
+}
+
+.brand-icon {
+  height: auto;
+  max-height: 30px; /* Adjust this value as needed */
+  width: auto;
+  max-width: 100%;
+}
+
+.margin-top-large {
+  margin-top: 150px; /* Adjust this value as needed */
 }

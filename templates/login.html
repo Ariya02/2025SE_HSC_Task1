@@ -1,0 +1,60 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="container mt-5">
+  <div class="row">
+    <h1 class="display-1"></h1>
+  </div>
+  <div
+    class="container mt-5 mb-5"
+    style="margin-top: 200px; margin-bottom: 150px"
+  >
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-container">
+          <h2>Welcome to Developer Diary</h2>
+          <p>
+            This is a place where you can keep track of your development
+            progress, share your thoughts, and connect with other developers.
+          </p>
+          <p>
+            Sign in to access your diary and start sharing your journey with the
+            community.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address or Developer ID</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text">
+              We'll never share your email with anyone else.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <a href="{{ url_for('signup') }}">Sign Up</a>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</div>
