@@ -3,6 +3,7 @@ from flask import redirect
 from flask import render_template
 from flask import request
 from flask import jsonify
+from flask import url_for
 import requests
 from flask_wtf import CSRFProtect
 from flask_csp.csp import csp_header
@@ -58,13 +59,26 @@ def root():
         "frame-src": "'none'",
     }
 )
-def index():
-    return render_template("/index.html")
+def login():
+    if request.method == 'POST':
+        # Handle login logic here
+        return redirect(url_for('home'))
+    return render_template('login.html', current_route='login')
 
+@app.route('/home')
+def home():
+    return render_template('index.html', current_route='home')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        # Handle signup logic here
+        return redirect(url_for('home'))
+    return render_template('signup.html', current_route='signup')
 
 @app.route("/privacy.html", methods=["GET"])
 def privacy():
-    return render_template("/privacy.html")
+    return render_template("/privacy.html", current_route='privacy')
 
 
 # example CSRF protected form

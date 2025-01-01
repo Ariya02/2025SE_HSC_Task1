@@ -1,0 +1,40 @@
+/templates/signup.html --> {% extends 'layout.html' %} {% block content %}
+<div
+  class="container mt-5 mb-5"
+  style="margin-top: 200px; margin-bottom: 150px"
+>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="POST" action="{{ url_for('signup') }}">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          onclick="window.location.href='{{ url_for('home') }}'"
+        >
+          Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
