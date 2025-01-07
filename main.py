@@ -4,12 +4,13 @@ from flask import render_template
 from flask import request
 from flask import jsonify
 from flask import url_for
+from flask import flash
 import requests
 from flask_wtf import CSRFProtect
 from flask_csp.csp import csp_header
 import logging
 
-import userManagement as dbHandler
+import database_manager as dbHandler
 
 # Code snippet for logging a message
 # app.logger.critical("message")
@@ -24,7 +25,7 @@ logging.basicConfig(
 
 # Generate a unique basic 16 key: https://acte.ltd/utils/randomkeygen
 app = Flask(__name__)
-app.secret_key = b"_53oi3uriq9pifpff;apl"
+app.secret_key = 'your_secret_key'  # Needed for flashing messages and CSRF protection
 csrf = CSRFProtect(app)
 
 
@@ -41,7 +42,6 @@ def root():
 @app.route("/", methods=["POST", "GET"])
 @csp_header(
     {
-        # Server Side CSP is consistent with meta CSP in layout.html
         "base-uri": "'self'",
         "default-src": "'self'",
         "style-src": "'self'",
@@ -61,9 +61,15 @@ def root():
 )
 def login():
     if request.method == 'POST':
-        # Handle login logic here
-        return redirect(url_for('home'))
+        email = request.form['email']
+        password = request.form['password']
+        user = dbHandler.checkCredentials(email, password)
+        if user:
+            return redirect(url_for('home'))
+        else:
+            flash('Invalid username or password')
     return render_template('login.html', current_route='login')
+
 
 @app.route('/home')
 def home():
@@ -72,7 +78,13 @@ def home():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        # Handle signup logic here
+        email = request.form['email']
+        first = request.form['firstName']
+        last = request.form['lastName']
+        password = request.form['password']
+        developer_id = request.form['developerId']
+        app.logger.debug(f"Received signup data: email={email}, firstName={first}, lastName={last}, password={password}, developerId={developer_id}")
+        dbHandler.insertDetails(email, first, last, password, developer_id)
         return redirect(url_for('home'))
     return render_template('signup.html', current_route='signup')
 
