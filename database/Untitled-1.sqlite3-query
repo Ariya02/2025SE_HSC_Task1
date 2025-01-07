@@ -1,0 +1,20 @@
+-- database: ./data_source.db
+
+-- Step 1: Rename the original table
+ALTER TABLE developer_details RENAME TO temp_developer_details;
+
+-- Step 2: Create a new table without the developer_id column
+CREATE TABLE developer_details (
+    developer_email VARCHAR(50) NOT NULL,
+    developer_firstName VARCHAR(15) NOT NULL,
+    developer_lastName VARCHAR(15) NOT NULL,
+    developer_password VARCHAR(12) NOT NULL
+);
+
+-- Step 3: Copy data from the old table to the new table
+INSERT INTO developer_details (developer_email, developer_firstName, developer_lastName, developer_password)
+SELECT developer_email, developer_firstName, developer_lastName, developer_password
+FROM temp_developer_details;
+
+-- Step 4: Drop the old table
+DROP TABLE temp_developer_details;

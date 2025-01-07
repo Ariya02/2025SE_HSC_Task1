@@ -55,3 +55,31 @@ This Flask template has been built from the ground up to be a secure Progressive
 
 > [!TIP]
 > Developers should [monitor Bootstrap 5.3.3 for discovered vulnerabilities](https://security.snyk.io/package/npm/bootstrap) and patch or update as needed.
+
+## Senior Software Engineer Requirements/Specifications
+
+1. Security evident in all phases of the software development lifecycle
+2. Ability for new team members to self-sign up
+3. Authentication and session management
+4. Developer log entries are time/date stamped
+5. Application meets minimum WC3 PWA standards
+6. Allow developers to search entries by developer, date, project or log/diary contents
+7. The app is modelled using: Level 0 data flow diagram, Structure chart & Data dictionary
+8. Optional: API data sharing and 2FA authentication
+
+## Junior Software Engineer Specifications
+
+### General
+
+- Sorting mechanism
+- Component that allows for filtering through desired diary entries
+- Title and description (brief summary) in each diary entry
+- Security features (2FA)
+- Intuitive UI
+
+### Aesthetics
+
+- Dark/light mode option
+- Nav bar
+- Customisable theme
+- Encryption of personal information

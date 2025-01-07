@@ -1,18 +1,54 @@
-/templates/signup.html --> {% extends 'layout.html' %} {% block content %}
+{% extends 'layout.html' %} {% block content %}
 <div
   class="container mt-5 mb-5"
   style="margin-top: 200px; margin-bottom: 150px"
 >
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <form method="POST" action="{{ url_for('signup') }}">
+      <form id="signupForm" method="POST" action="{{ url_for('signup') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        <div class="mb-3"></div>
+        <div class="mb-3">
+          <label for="developerId" class="form-label">Developer ID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="developerId"
+            name="developerId"
+            pattern="\d{5}"
+            placeholder="Enter 5-digit Developer ID"
+            required
+          />
+        </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email address</label>
           <input
+            name="email"
             type="email"
             class="form-control"
             id="email"
-            name="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            placeholder="name@example.com"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            name="firstName"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            name="lastName"
             required
           />
         </div>
@@ -26,15 +62,21 @@
             required
           />
         </div>
-        <button
-          type="submit"
-          class="btn btn-primary"
-          onclick="window.location.href='{{ url_for('home') }}'"
-        >
-          Sign Up
-        </button>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
       </form>
     </div>
   </div>
 </div>
+
+<script>
+  document
+    .getElementById("signupForm")
+    .addEventListener("submit", function (event) {
+      var password = document.getElementById("password").value;
+      if (!password) {
+        event.preventDefault(); // Prevent form submission
+        alert("Password is required.");
+      }
+    });
+</script>
 {% endblock %}
