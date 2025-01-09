@@ -7,10 +7,12 @@
 5. Develop entry box for each diary entry
 6. Implement filter to sort through diary
 7. Set up dark mode and view customisation
-8. Set up database for desired data to be stored
+8. ~~Set up database for desired data to be stored~~
 9. Encrypt passwords
-10. Develop blueprint of each page of the website
+10. ~~Develop blueprint of each page of the website~~
 11. ~~Set up homepage (index.html)~~
-12. Connect links to pages
-13. Apply footer layout
+12. ~~Connect links to each page~~
+13. ~~Apply footer layout~~
 14. Develop function to sanitise and validate data
+15. Integrate login form with database
+16. Integrate signup form with database
