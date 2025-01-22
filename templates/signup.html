@@ -1,4 +1,4 @@
-{% extends 'layout.html' %} {% block content %}
+{% extends 'signlogin.html' %} {% block content %}
 <div
   class="container mt-5 mb-5"
   style="margin-top: 200px; margin-bottom: 150px"
@@ -62,6 +62,24 @@
             required
           />
         </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="invalidCheck"
+              required
+            />
+            <label class="form-check-label" for="invalidCheck">
+              Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+              You must agree before submitting.
+            </div>
+          </div>
+        </div>
+        <div class="mb-3"></div>
         <button type="submit" class="btn btn-primary">Sign Up</button>
       </form>
     </div>
@@ -79,4 +97,5 @@
       }
     });
 </script>
+
 {% endblock %}
