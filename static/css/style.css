@@ -13,8 +13,29 @@ body {
   max-height: 30px; /* Adjust this value as needed */
   width: auto;
   max-width: 100%;
+  margin-right: 10px; /* Adjust spacing as needed */
 }
 
 .margin-top-large {
   margin-top: 150px; /* Adjust this value as needed */
+}
+input:invalid + span::after {
+  content: " ✖";
+}
+
+input:valid + span::after {
+  content: " ✓";
+}
+
+.navbar-dark.bg-dark-grey {
+  background-color: #343a40; /* Dark grey color */
+}
+
+.offcanvas-start.text-bg-dark-grey,
+.offcanvas-end.text-bg-dark-grey {
+  background-color: #343a40; /* Dark grey color */
+}
+
+.btn-close-white {
+  filter: invert(1);
 }
