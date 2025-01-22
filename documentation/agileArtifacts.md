@@ -11,6 +11,7 @@
 
 1. ~~Create a database for login details~~
 2. ~~Integrate signup page with database (store the signup information into database)~~
+3. ~~Set up privacy policy page~~
 
 ## Sprint 3
 
@@ -20,6 +21,7 @@
 4. ~~Sanitise all inputs in the signup form~~(all except password)
 5. ~~Sanitise all inputs in the login form~~
 6. ~~Create a database for diary entries~~
+7. ~~Integration of database with the diary entry form~~
 
 ### Sanitise and Validate User
 
@@ -28,3 +30,10 @@ Must include:
 - ~~password length must be between 8-12~~
 - ~~password must contain at least 1 digit and 1 uppercase~~
 - ~~email must be valid~~
+
+## Sprint 4
+
+1. ~~Create a function that validates diary entries~~
+2. ~~Create a function that sanitises diary entries~~
+3. ~~Display diary entries~~
+4. ~~Display Each Diary Entry~~

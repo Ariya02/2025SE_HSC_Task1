@@ -1,11 +1,3 @@
 -- database: ./data_source.db
 
-CREATE TABLE diary_entry (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    project_name TEXT NOT NULL,
-    summary TEXT NOT NULL,
-    programming_language TEXT NOT NULL,
-    time_started TEXT NOT NULL,
-    time_finished TEXT NOT NULL,
-    description TEXT NOT NULL
-);
+ALTER TABLE diary_entry ADD COLUMN date;

@@ -15,7 +15,10 @@ def validate_email(email):
         return "Invalid email address."
     return None
 
-def sanitise_input(input_data):
-    # Removes potentially harmful characters (<>), scripts cannot be injected 
-    sanitized_data = re.sub(r'[<>]', '', input_data)
-    return sanitized_data
+def sanitise_input(input_string):
+    # Remove any unwanted characters or patterns
+    return re.sub(r'[^\w\s]', '', input_string)
+
+def sanitise_email(input_string):
+    # Remove any characters that are not allowed in email addresses
+    return re.sub(r'[^a-zA-Z0-9._%+-@]', '', input_string)
