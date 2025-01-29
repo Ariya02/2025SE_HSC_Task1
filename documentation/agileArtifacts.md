@@ -37,3 +37,13 @@ Must include:
 2. ~~Create a function that sanitises diary entries~~
 3. ~~Display diary entries~~
 4. ~~Display Each Diary Entry~~
+
+## Sprint 5
+
+1. ~~Salt+Hash password and email before storing in database~~
+2. Create a profile page displaying developer details\*
+
+\*Developer details include:
+
+- Name
+- Email address

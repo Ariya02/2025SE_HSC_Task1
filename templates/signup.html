@@ -1,101 +1,89 @@
 {% extends 'signlogin.html' %} {% block content %}
-<div
-  class="container mt-5 mb-5"
-  style="margin-top: 200px; margin-bottom: 150px"
->
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <form id="signupForm" method="POST" action="{{ url_for('signup') }}">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-        <div class="mb-3"></div>
-        <div class="mb-3">
-          <label for="developerId" class="form-label">Developer ID</label>
-          <input
-            type="text"
-            class="form-control"
-            id="developerId"
-            name="developerId"
-            pattern="\d{5}"
-            placeholder="Enter 5-digit Developer ID"
-            required
-          />
+
+<div class="container mt-5">
+  <div class="row">
+    <h1 class="display-1"></h1>
+  </div>
+  <div
+    class="container mt-5 mb-5"
+    style="margin-top: 200px; margin-bottom: 150px"
+  >
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-container">
+          <h2>Welcome to Developer Diary</h2>
+          <p>
+            This application is where you can keep track of your development
+            progress, share your thoughts, and connect with other developers.
+          </p>
+          <p>Sign up to start your journey with the community.</p>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input
-            name="email"
-            type="email"
-            class="form-control"
-            id="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            placeholder="name@example.com"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="firstName" class="form-label">First Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="firstName"
-            name="firstName"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="lastName" class="form-label">Last Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="lastName"
-            name="lastName"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            name="password"
-            required
-          />
-        </div>
-        <div class="col-12">
-          <div class="form-check">
+      </div>
+      <div class="col-md-6">
+        <form method="POST" action="{{ url_for('signup') }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
             <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="invalidCheck"
+              name="email"
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Enter your email"
               required
             />
-            <label class="form-check-label" for="invalidCheck">
-              Agree to terms and conditions
-            </label>
-            <div class="invalid-feedback">
-              You must agree before submitting.
+          </div>
+          <div class="mb-3">
+            <label for="firstName" class="form-label">First Name:</label>
+            <input
+              name="firstName"
+              type="text"
+              class="form-control"
+              id="firstName"
+              placeholder="Enter your first name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name:</label>
+            <input
+              name="lastName"
+              type="text"
+              class="form-control"
+              id="lastName"
+              placeholder="Enter your last name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              required
+            />
+          </div>
+          <div class="col-12 mb-3">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="invalidCheck"
+                required
+              />
+              <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+              </label>
             </div>
           </div>
-        </div>
-        <div class="mb-3"></div>
-        <button type="submit" class="btn btn-primary">Sign Up</button>
-      </form>
+          <button type="submit" class="btn btn-primary">Signup</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
-
-<script>
-  document
-    .getElementById("signupForm")
-    .addEventListener("submit", function (event) {
-      var password = document.getElementById("password").value;
-      if (!password) {
-        event.preventDefault(); // Prevent form submission
-        alert("Password is required.");
-      }
-    });
-</script>
 
 {% endblock %}

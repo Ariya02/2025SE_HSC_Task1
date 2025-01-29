@@ -21,7 +21,7 @@
   </head>
   <body>
     {% extends 'layout.html' %} {% block content %}
-    <div class="container mt-5">
+    <div class="container mt-5 pt-5">
       <div class="row">
         <h1 class="display-5">
           <strong>What have you been working on?</strong>
@@ -32,19 +32,20 @@
     <div class="container">
       <div class="row">
         <form action="/submit_entry" method="POST" class="box">
+          </div>
           <div class="mb-3">
-            <label for="projectName" class="form-label">Project Name</label>
+            <label for="project_name" class="form-label">Project Name</label>
             <input
               name="project_name"
               type="text"
               class="form-control"
-              id="projectName"
+              id="project_name"
               placeholder="Enter project name"
               required
             />
           </div>
           <div class="mb-3">
-            <label for="summary" class="form-label">Summary of Task</label>
+            <label for="summary" class="form-label">Summary</label>
             <input
               name="summary"
               type="text"
@@ -55,12 +56,12 @@
             />
           </div>
           <div class="mb-3">
-            <label for="language" class="form-label"
+            <label for="programming_language" class="form-label"
               >Programming Language</label
             >
             <select
               name="programming_language"
-              id="language"
+              id="programming_language"
               class="form-control"
               required
             >
@@ -77,45 +78,24 @@
               <option value="other">Other</option>
             </select>
           </div>
-          <div class="mb-3">
-            <label for="developerId" class="form-label">Developer ID</label>
-            <input
-              name="developer_id"
-              type="text"
-              class="form-control"
-              id="developerId"
-              pattern="\d{5}"
-              maxlength="5"
-              placeholder="5 digit developer ID"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="date-filter" class="form-label">Date</label>
-            <input
-              name="date"
-              type="date"
-              id="date-filter"
-              class="form-control"
-            />
-          </div>
-          <span class="validity"></span>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="startTime" class="form-label">Time started:</label>
+              <label for="time_started" class="form-label">Time Started</label>
               <input
                 type="time"
-                id="startTime"
+                id="time_started"
                 name="time_started"
                 class="form-control"
                 required
               />
             </div>
             <div class="col-md-6 mb-3">
-              <label for="endTime" class="form-label">Time finished:</label>
+              <label for="time_finished" class="form-label"
+                >Time Finished</label
+              >
               <input
                 type="time"
-                id="endTime"
+                id="time_finished"
                 name="time_finished"
                 class="form-control"
                 required
@@ -133,7 +113,9 @@
               required
             ></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Submit Entry</button>
+          <input type="hidden" id="date" name="date" />
+          <input type="hidden" id="entry_timestamp" name="entry_timestamp" />
+          <button type="submit" class="btn btn-primary">Submit</button>
           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
         </form>
       </div>
@@ -144,5 +126,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      document.getElementById("date").value = new Date()
+        .toISOString()
+        .split("T")[0];
+      document.getElementById("entry_timestamp").value =
+        new Date().toISOString();
+    </script>
   </body>
 </html>
