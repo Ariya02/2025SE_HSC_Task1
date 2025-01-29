@@ -49,8 +49,11 @@
             My Account
           </a>
           <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="#">My Profile</a></li>
-            <li><a class="dropdown-item" href="#">Join Team</a></li>
+            <li>
+              <a class="dropdown-item" href="{{ url_for('profile') }}"
+                >My Profile</a
+              >
+            </li>
             <li>
               <a class="dropdown-item" href="{{ url_for('login') }}">Log Out</a>
             </li>

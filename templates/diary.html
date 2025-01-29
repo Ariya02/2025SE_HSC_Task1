@@ -1,27 +1,58 @@
-{% extends 'layout.html' %} {% block content %}
+{% extends "layout.html" %} {% block title %}Diary Entries{% endblock %} {%
+block head %}
+<script>
+  function filterEntries() {
+    const searchInput = document
+      .getElementById("searchInput")
+      .value.toLowerCase();
+    const entries = document.getElementsByClassName("entry-card");
+
+    for (let i = 0; i < entries.length; i++) {
+      const entry = entries[i];
+      const textContent = entry.textContent.toLowerCase();
+      if (textContent.includes(searchInput)) {
+        entry.style.display = "";
+      } else {
+        entry.style.display = "none";
+      }
+    }
+  }
+</script>
+{% endblock %} {% block content %}
 <div class="container mt-5 pt-5">
   <h1>All Diary Entries</h1>
-  <form class="d-flex mb-3" role="search">
-    <input
-      class="form-control me-2"
-      type="search"
-      placeholder="Search"
-      aria-label="Search"
-    />
-    <button class="btn btn-outline-success" type="submit">Search</button>
-  </form>
-  <div class="container">
-    <div id="entries-container">
-      {% for entry in diary_entries %}
-      <div class="card mb-3">
+  <nav class="navbar navbar-light bg-light">
+    <form
+      class="form-inline"
+      onsubmit="event.preventDefault(); filterEntries();"
+    >
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        id="searchInput"
+        placeholder="Search"
+        aria-label="Search"
+        onkeyup="filterEntries()"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+  </nav>
+  <div id="entries-container">
+    {% for entry in diary_entries %}
+    <div class="container container-border">
+      <div class="card mb-3 entry-card">
         <div class="card-body">
-          <h5 class="card-title">Developer ID: {{ entry[7] }}</h5>
+          <h5 class="card-title">Developer Name: {{ entry[8] }}</h5>
           <p class="card-text"><strong>Project Name:</strong> {{ entry[1] }}</p>
           <p class="card-text"><strong>Summary:</strong> {{ entry[2] }}</p>
           <p class="card-text">
             <strong>Programming Language:</strong> {{ entry[3] }}
           </p>
-          <p class="card-text"><strong>Date:</strong> {{ entry[8] }}</p>
+          <p class="card-text">
+            <strong>Date/time entry:</strong> {{ entry[9] }}
+          </p>
           <p class="card-text"><strong>Time Started:</strong> {{ entry[4] }}</p>
           <p class="card-text">
             <strong>Time Finished:</strong> {{ entry[5] }}
@@ -29,12 +60,8 @@
           <p class="card-text"><strong>Description:</strong> {{ entry[6] }}</p>
         </div>
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock %}
-<!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

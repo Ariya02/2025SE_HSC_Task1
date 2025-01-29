@@ -1,6 +1,10 @@
+/* Import Courier Prime font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
+
 * {
 }
 body {
+  font-family: "Courier Prime", monospace;
 }
 .container {
 }
@@ -38,4 +42,40 @@ input:valid + span::after {
 
 .btn-close-white {
   filter: invert(1);
+}
+
+.hide {
+  display: none;
+}
+
+.profile-info {
+  font-weight: bold;
+  color: #777;
+}
+/* Define the font style for the entire website */
+body {
+  font-family: "Roboto Mono", monospace;
+}
+
+/* Additional styles for consistency */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Mono", monospace;
+}
+
+p,
+a,
+span,
+div {
+  font-family: "Roboto Mono", monospace;
+}
+
+.container-border {
+  border: 1px solid black;
+  padding: 15px;
+  margin-bottom: 15px;
 }
