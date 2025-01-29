@@ -74,7 +74,7 @@ This Flask template has been built from the ground up to be a secure Progressive
 - Sorting mechanism
 - Component that allows for filtering through desired diary entries
 - Title and description (brief summary) in each diary entry
-- Security features (2FA)
+- Security features (e.g. secure storage of details)
 - Intuitive UI
 
 ### Aesthetics
