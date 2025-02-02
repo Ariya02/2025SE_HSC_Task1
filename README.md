@@ -24,14 +24,11 @@ This Flask template has been built from the ground up to be a secure Progressive
 - CSRFProtect applied to form.
 - Form Pattern expression declared.
 
-## To be implemented by developers
+## User Instructions 
+Test Email:
+Test Password:
 
-- Web content, [Bootstrap 5.3](https://getbootstrap.com/) ready
-- [SQLite](https://docs.python.org/3/library/sqlite3.html) database design and integration
-- Input sanitisation
-- Login, authentication or session management
-- Password encryption using [bcrypt](https://pypi.org/project/bcrypt/)
-- SSL Encryption
+
 
 ## Privacy advice for developers
 
@@ -74,7 +71,7 @@ This Flask template has been built from the ground up to be a secure Progressive
 - Sorting mechanism
 - Component that allows for filtering through desired diary entries
 - Title and description (brief summary) in each diary entry
-- Security features (2FA)
+- Security features
 - Intuitive UI
 
 ### Aesthetics
