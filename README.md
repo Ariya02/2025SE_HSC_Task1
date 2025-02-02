@@ -1,6 +1,6 @@
-# Secure Flask Bootstrap PWA Template
+# Software Developer Diary - "DevNotes"
 
-This Flask template has been built from the ground up to be a secure Progressive Web App. It includes a secure form and Bootstrap sample components ready to be connected to a SQLite3 database. All minimum PWA standards have been integrated, and placeholder images have been provided for all the icon and image components.
+This progressive web app is for software developers and teams to securely log the progress of their projects. The PWA is developed as part of a HSC Software Engineering Assignment Task 1 2025. Below outlines the dependencies, security features, specifications for the PWA and User Instructions. 
 
 ## Dependencies
 
@@ -24,14 +24,11 @@ This Flask template has been built from the ground up to be a secure Progressive
 - CSRFProtect applied to form.
 - Form Pattern expression declared.
 
-## To be implemented by developers
+## User Instructions 
+Test Email:
+Test Password:
 
-- Web content, [Bootstrap 5.3](https://getbootstrap.com/) ready
-- [SQLite](https://docs.python.org/3/library/sqlite3.html) database design and integration
-- Input sanitisation
-- Login, authentication or session management
-- Password encryption using [bcrypt](https://pypi.org/project/bcrypt/)
-- SSL Encryption
+
 
 ## Privacy advice for developers
 
@@ -48,10 +45,30 @@ This Flask template has been built from the ground up to be a secure Progressive
 - Use Jinga2 components when passing variables to the frontend
 - Use query parameters for all SQL queries
 
-## Content advice for developers
+## Senior Software Engineer Requirements/Specifications
 
-- All templates are [Bootstrap 5.3](https://getbootstrap.com/) ready
-- [SQLite](https://docs.python.org/3/library/sqlite3.html) has been provided for database design
+1. Security evident in all phases of the software development lifecycle
+2. Ability for new team members to self-sign up
+3. Authentication and session management
+4. Developer log entries are time/date stamped
+5. Application meets minimum WC3 PWA standards
+6. Allow developers to search entries by developer, date, project or log/diary contents
+7. The app is modelled using: Level 0 data flow diagram, Structure chart & Data dictionary
+8. Optional: API data sharing and 2FA authentication
 
-> [!TIP]
-> Developers should [monitor Bootstrap 5.3.3 for discovered vulnerabilities](https://security.snyk.io/package/npm/bootstrap) and patch or update as needed.
+## Junior Software Engineer Specifications
+
+### General
+
+- Sorting mechanism
+- Component that allows for filtering through desired diary entries
+- Title and description (brief summary) in each diary entry
+- Security features
+- Intuitive UI
+
+### Aesthetics
+
+- Dark/light mode option
+- Nav bar
+- Customisable theme
+- Encryption of personal information
