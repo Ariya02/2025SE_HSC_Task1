@@ -1,6 +1,6 @@
-# Secure Flask Bootstrap PWA Template
+# Software Developer Diary - "DevNotes"
 
-This Flask template has been built from the ground up to be a secure Progressive Web App. It includes a secure form and Bootstrap sample components ready to be connected to a SQLite3 database. All minimum PWA standards have been integrated, and placeholder images have been provided for all the icon and image components.
+This progressive web app is for software developers and teams to securely log the progress of their projects. The PWA is developed as part of a HSC Software Engineering Assignment Task 1 2025. Below outlines the dependencies, security features, specifications for the PWA and User Instructions. 
 
 ## Dependencies
 
@@ -44,14 +44,6 @@ Test Password:
 - SSL Encryption and HTTPS should be implemented
 - Use Jinga2 components when passing variables to the frontend
 - Use query parameters for all SQL queries
-
-## Content advice for developers
-
-- All templates are [Bootstrap 5.3](https://getbootstrap.com/) ready
-- [SQLite](https://docs.python.org/3/library/sqlite3.html) has been provided for database design
-
-> [!TIP]
-> Developers should [monitor Bootstrap 5.3.3 for discovered vulnerabilities](https://security.snyk.io/package/npm/bootstrap) and patch or update as needed.
 
 ## Senior Software Engineer Requirements/Specifications
 
