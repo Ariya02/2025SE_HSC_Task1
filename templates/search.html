@@ -1,0 +1,70 @@
+{% extends "layout.html" %} {% block title %}Search Diary Entries{% endblock %}
+{% block content %}
+<div class="container mt-5 pt-5">
+  <h1>Search Diary Entries</h1>
+  <form method="post" action="{{ url_for('search') }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="developer-name" class="form-label">Developer Name:</label>
+        <div class="input-group">
+          <input
+            name="developer-name"
+            type="text"
+            class="form-control"
+            id="developer-name"
+            placeholder="Enter developer name"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="date" class="form-label">Date:</label>
+        <div class="input-group">
+          <input
+            name="date"
+            type="text"
+            class="form-control"
+            id="date"
+            placeholder="YYYY-MM-DD"
+          /><button class="btn btn-outline-success" type="submit">
+            Search
+          </button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="project-name" class="form-label">Project Name:</label>
+        <div class="input-group">
+          <input
+            name="project-name"
+            type="text"
+            class="form-control"
+            id="project-name"
+            placeholder="Enter project name"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+    </div>
+  </form>
+  <div id="entries-container">
+    {% for entry in search_entries %}
+    <div class="card mb-3 entry-card">
+      <div class="card-body">
+        <h5 class="card-title">Developer Name: {{ entry[8] }}</h5>
+        <p class="card-text"><strong>Project Name:</strong> {{ entry[1] }}</p>
+        <p class="card-text"><strong>Summary:</strong> {{ entry[2] }}</p>
+        <p class="card-text">
+          <strong>Programming Language:</strong> {{ entry[3] }}
+        </p>
+        <p class="card-text">
+          <strong>Date/time entry:</strong> {{ entry[9] }}
+        </p>
+        <p class="card-text"><strong>Time Started:</strong> {{ entry[4] }}</p>
+        <p class="card-text"><strong>Time Finished:</strong> {{ entry[5] }}</p>
+        <p class="card-text"><strong>Description:</strong> {{ entry[6] }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

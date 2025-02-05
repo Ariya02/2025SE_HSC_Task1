@@ -1,14 +1,22 @@
-{% extends "layout.html" %} {% block title %}Diary Entries{% endblock %} {%
-block content %}
+{% extends 'layout.html' %} {% block content %}
 <div class="container mt-5 pt-5">
-  <h1>All Diary Entries</h1>
+  <h1>My Profile</h1>
+</div>
+<div class="container mt-5">
+  <h5><strong>First Name: </strong></h5>
+  <p class="profile-info">{{ first_name }}</p>
+  <h5><strong>Last Name: </strong></h5>
+  <p class="profile-info">{{ last_name }}</p>
+  <h5><strong>Email: </strong></h5>
+  <p class="profile-info">{{ email }}</p>
+</div>
+<div class="container mt-5">
+  <h2>My Entries</h2>
   <div id="entries-container">
     {% for entry in diary_entries %}
     <div class="card mb-3 entry-card">
       <div class="card-body">
-        <h5 class="card-title">
-          <strong>Developer Name:</strong> {{ entry[8] }}
-        </h5>
+        <h5 class="card-title">Developer Name: {{ entry[8] }}</h5>
         <p class="card-text"><strong>Project Name:</strong> {{ entry[1] }}</p>
         <p class="card-text"><strong>Summary:</strong> {{ entry[2] }}</p>
         <p class="card-text">

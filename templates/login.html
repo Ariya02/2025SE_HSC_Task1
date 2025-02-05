@@ -17,7 +17,7 @@
             progress, share your thoughts, and connect with other developers.
           </p>
           <p>
-            Sign in to access your diary and start sharing your journey with the
+            Log in to access your diary and start sharing your journey with the
             community.
           </p>
         </div>
@@ -26,26 +26,22 @@
         <form id="loginForm" method="POST" action="{{ url_for('login') }}">
           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
           <div class="mb-3">
-            <label for="identifier" class="form-label"
-              >Email address or Developer ID</label
-            >
+            <label for="email" class="form-label">Email:</label>
             <input
-              name="identifier"
-              type="text"
+              name="email"
+              type="email"
               class="form-control"
-              id="identifier"
-              placeholder="Enter your email or developer ID"
+              id="email"
+              placeholder="Enter your email"
+              required
             />
-            <div id="emailHelp" class="form-text">
-              We'll never share your email with anyone else.
-            </div>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input
               type="password"
               class="form-control"
-              id="exampleInputPassword1"
+              id="password"
               name="password"
               required
             />
@@ -53,7 +49,7 @@
           <div class="mb-3">
             <a href="{{ url_for('signup') }}">Sign Up</a>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Login</button>
         </form>
       </div>
     </div>
