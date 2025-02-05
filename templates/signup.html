@@ -22,46 +22,47 @@
       <div class="col-md-6">
         <form method="POST" action="{{ url_for('signup') }}">
           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-          <div class="mb-3">
-            <label for="email" class="form-label">Email:</label>
+          <div class="form-group">
+            <label for="email">Email:</label>
             <input
-              name="email"
               type="email"
               class="form-control"
               id="email"
+              name="email"
               placeholder="Enter your email"
               required
             />
           </div>
-          <div class="mb-3">
-            <label for="firstName" class="form-label">First Name:</label>
+          <div class="form-group">
+            <label for="firstName">First Name:</label>
             <input
-              name="firstName"
               type="text"
               class="form-control"
               id="firstName"
+              name="firstName"
               placeholder="Enter your first name"
               required
             />
           </div>
-          <div class="mb-3">
-            <label for="lastName" class="form-label">Last Name:</label>
+          <div class="form-group">
+            <label for="lastName">Last Name:</label>
             <input
-              name="lastName"
               type="text"
               class="form-control"
               id="lastName"
+              name="lastName"
               placeholder="Enter your last name"
               required
             />
           </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
+          <div class="form-group">
+            <label for="password">Password:</label>
             <input
               type="password"
               class="form-control"
               id="password"
               name="password"
+              placeholder="Enter your password"
               required
             />
           </div>
@@ -79,7 +80,7 @@
               </label>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Signup</button>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
       </div>
     </div>

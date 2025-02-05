@@ -48,6 +48,14 @@ Must include:
 1. ~~Implement working search bar~~
 2. ~~Create separate page for search diary results~~
 
+## Sprint 7
+
+1. ~~Re-encrypt all passwords~~
+2. ~~Update README for instructions on app use~~
+3. ~~Create a test user for marking~~
+4. ~~Implement 2FA~~
+5. ~~Run final system tests~~
+
 \*Developer details include:
 
 - Name

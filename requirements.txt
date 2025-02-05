@@ -2,3 +2,5 @@ Flask
 bcrypt
 flask_wtf
 flask-csp
+pyoptp
+qrcode

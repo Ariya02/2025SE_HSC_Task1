@@ -7699,3 +7699,12 @@
 2025-02-04 23:55:15,832 Password match
 2025-02-04 23:55:15,832 Session developer_firstName set to: example
 2025-02-04 23:55:15,832 Session developer_lastName set to: example
+2025-02-05 00:45:33,352 Received signup data: email=admin.user@gmail.com, firstName=Admin, lastName=User, password=Adminuser1
+2025-02-05 00:45:42,223 User found: {'developer_email': 'admin.user@gmail.com', 'developer_password': b'$2b$12$M4gjeF6Pvxp/fvfd1VhkgufEoMi.PFcYEfRYFwu9wk5YRSxuY6P9q', 'developer_firstName': 'Admin', 'developer_lastName': 'User'}
+2025-02-05 00:45:42,223 Entered password: Adminuser1
+2025-02-05 00:45:42,223 Stored password: b'$2b$12$M4gjeF6Pvxp/fvfd1VhkgufEoMi.PFcYEfRYFwu9wk5YRSxuY6P9q'
+2025-02-05 00:53:53,058 Retrieved developer_name from session: Admin User
+2025-02-05 00:54:58,004 Retrieved developer_name from session: Admin User
+2025-02-05 01:02:16,861 Retrieved developer_name from session: Admin User
+2025-02-05 01:02:42,853 Retrieved developer_name from session: Admin User
+2025-02-05 01:04:49,548 Retrieved developer_name from session: Admin User

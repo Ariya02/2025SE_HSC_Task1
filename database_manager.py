@@ -6,13 +6,13 @@ from datetime import datetime
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-def insertDetails(email, first, last, password):
+def insertDetails(email, first, last, hashed_password, secret):
     conn = sqlite3.connect('database/data_source.db')
     cursor = conn.cursor()
     cursor.execute('''
-        INSERT INTO developer_details (developer_email, developer_firstName, developer_lastName, developer_password)
-        VALUES (?, ?, ?, ?)
-    ''', (email, first, last, password))
+        INSERT INTO developer_details (developer_email, developer_firstName, developer_lastName, developer_password, secret)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (email, first, last, hashed_password, secret))
     conn.commit()
     conn.close()
 
@@ -20,16 +20,17 @@ def checkCredentials(email):
     conn = sqlite3.connect('database/data_source.db')
     cursor = conn.cursor()
     cursor.execute('''
-        SELECT developer_email, developer_password, developer_firstName, developer_lastName FROM developer_details WHERE developer_email = ?
+        SELECT developer_email, developer_password, developer_firstName, developer_lastName, secret FROM developer_details WHERE developer_email = ?
     ''', (email,))
-    result = cursor.fetchone()
+    user = cursor.fetchone()
     conn.close()
-    if result:
+    if user:
         return {
-            'developer_email': result[0],
-            'developer_password': result[1],
-            'developer_firstName': result[2],
-            'developer_lastName': result[3]
+            'developer_email': user[0],
+            'developer_password': user[1],
+            'developer_firstName': user[2],
+            'developer_lastName': user[3],
+            'secret': user[4]
         }
     return None
 
@@ -50,13 +51,13 @@ def get_user_details(email):
     return None
 
 # Adds diary entries into the database
-def insert_diary_entry(developer_name, project_name, summary, programming_language, time_started, time_finished, description, date, developer_email, entry_timestamp):
+def insert_diary_entry(developer_name, project_name, summary, programming_language, time_started, time_finished, date, description, developer_email, entry_timestamp):
     conn = sqlite3.connect('database/data_source.db')
     cursor = conn.cursor()
     cursor.execute('''
-        INSERT INTO diary_entry (developer_name, project_name, summary, programming_language, time_started, time_finished, description, date, developer_email, entry_timestamp)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    ''', (developer_name, project_name, summary, programming_language, time_started, time_finished, description, date, developer_email, entry_timestamp))
+        INSERT INTO diary_entry (developer_name, project_name, summary, programming_language, time_started, time_finished, date, description, developer_email, entry_timestamp)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)
+    ''', (developer_name, project_name, summary, programming_language, time_started, time_finished, date, description, developer_email, entry_timestamp))
     conn.commit()
     conn.close()
 
