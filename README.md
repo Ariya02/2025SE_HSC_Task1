@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/e5a69f17-3f4a-4993-87ba-bdfe8aff9a1f)![image](https://github.com/user-attachments/assets/8ab02f8e-0261-4eb6-8736-d5fd24a1c8b4)# Software Developer Diary - "DevNotes"
+# Software Developer Diary - "DevNotes"
 
 This progressive web app is for software developers and teams to securely log the progress of their projects. The PWA is developed as part of a HSC Software Engineering Assignment Task 1 2025. Below outlines the dependencies, security features, specifications for the PWA and User Instructions. 
 
