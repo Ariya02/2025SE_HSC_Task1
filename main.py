@@ -5,9 +5,7 @@ from flask_csp.csp import csp_header
 import bcrypt
 import pyotp
 import qrcode
-import io
 import os
-import base64
 import database_manager as dbHandler  # Database functions
 from SVuser import validate_password, validate_email, sanitise_input, sanitise_email  # Password and email validation function, input sanitization
 from datetime import datetime
