@@ -1,0 +1,36 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="container mt-5 pt-5">
+  <h1>My Profile</h1>
+</div>
+<div class="container mt-5">
+  <h5><strong>First Name: </strong></h5>
+  <p class="profile-info">{{ first_name }}</p>
+  <h5><strong>Last Name: </strong></h5>
+  <p class="profile-info">{{ last_name }}</p>
+  <h5><strong>Email: </strong></h5>
+  <p class="profile-info">{{ email }}</p>
+</div>
+<div class="container mt-5">
+  <h2>My Entries</h2>
+  <div id="entries-container">
+    {% for entry in diary_entries %}
+    <div class="card mb-3 entry-card">
+      <div class="card-body">
+        <h5 class="card-title">Developer Name: {{ entry[8] }}</h5>
+        <p class="card-text"><strong>Project Name:</strong> {{ entry[1] }}</p>
+        <p class="card-text"><strong>Summary:</strong> {{ entry[2] }}</p>
+        <p class="card-text">
+          <strong>Programming Language:</strong> {{ entry[3] }}
+        </p>
+        <p class="card-text">
+          <strong>Date/time entry:</strong> {{ entry[9] }}
+        </p>
+        <p class="card-text"><strong>Time Started:</strong> {{ entry[4] }}</p>
+        <p class="card-text"><strong>Time Finished:</strong> {{ entry[5] }}</p>
+        <p class="card-text"><strong>Description:</strong> {{ entry[6] }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

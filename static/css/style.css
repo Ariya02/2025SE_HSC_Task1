@@ -1,13 +1,81 @@
-*   {
+/* Import Courier Prime font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
 
+* {
 }
 body {
-
+  font-family: "Courier Prime", monospace;
 }
 .container {
-
 }
 
 .row {
-    
+}
+
+.brand-icon {
+  height: auto;
+  max-height: 30px; /* Adjust this value as needed */
+  width: auto;
+  max-width: 100%;
+  margin-right: 10px; /* Adjust spacing as needed */
+}
+
+.margin-top-large {
+  margin-top: 150px; /* Adjust this value as needed */
+}
+input:invalid + span::after {
+  content: " ✖";
+}
+
+input:valid + span::after {
+  content: " ✓";
+}
+
+.navbar-dark.bg-dark-grey {
+  background-color: #343a40; /* Dark grey color */
+}
+
+.offcanvas-start.text-bg-dark-grey,
+.offcanvas-end.text-bg-dark-grey {
+  background-color: #343a40; /* Dark grey color */
+}
+
+.btn-close-white {
+  filter: invert(1);
+}
+
+.hide {
+  display: none;
+}
+
+.profile-info {
+  font-weight: bold;
+  color: #777;
+}
+/* Define the font style for the entire website */
+body {
+  font-family: "Roboto Mono", monospace;
+}
+
+/* Additional styles for consistency */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Mono", monospace;
+}
+
+p,
+a,
+span,
+div {
+  font-family: "Roboto Mono", monospace;
+}
+
+.container-border {
+  border: 1px solid black;
+  padding: 15px;
+  margin-bottom: 15px;
 }

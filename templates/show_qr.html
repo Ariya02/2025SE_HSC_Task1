@@ -1,0 +1,25 @@
+{% extends 'signlogin.html' %} {% block title %}DevNotes{% endblock %} {% block
+content %}
+<h1>Scan QR Code</h1>
+<p>Scan this QR code with your authenticator app:</p>
+<img src="{{ qr_code_url }}" alt="QR Code" />
+<form method="post" action="{{ url_for('show_qr') }}">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <label class="sr-only" for="otp">Enter the OTP:</label>
+      <input
+        type="text"
+        class="form-control mb-2"
+        id="otp"
+        name="otp"
+        placeholder="Enter OTP"
+        required
+      />
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-2">Verify</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

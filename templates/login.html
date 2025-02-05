@@ -1,0 +1,58 @@
+{% extends 'signlogin.html' %} {% block content %}
+
+<div class="container mt-5">
+  <div class="row">
+    <h1 class="display-1"></h1>
+  </div>
+  <div
+    class="container mt-5 mb-5"
+    style="margin-top: 200px; margin-bottom: 150px"
+  >
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-container">
+          <h2>Welcome to Developer Diary</h2>
+          <p>
+            This application is where you can keep track of your development
+            progress, share your thoughts, and connect with other developers.
+          </p>
+          <p>
+            Log in to access your diary and start sharing your journey with the
+            community.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <form id="loginForm" method="POST" action="{{ url_for('login') }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input
+              name="email"
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <a href="{{ url_for('signup') }}">Sign Up</a>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</div>

@@ -1,11 +1,147 @@
-{% extends 'layout.html' %}
-{% block content %}
-<div class="container">
-    <div class="row">
-        <h1 class="display-1">Hello world!</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevNotes</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/favicon.png') }}"
+    />
+  </head>
+  <body>
+    {% extends 'layout.html' %} {% block content %}
+    <div class="container mt-5 pt-5">
+      <div class="row">
+        <h1 class="display-5">
+          <strong>What have you been working on?</strong>
+        </h1>
+      </div>
+      <div class="row"></div>
     </div>
-    <div class="row">
-
+    <div class="container">
+      <div class="row">
+        <form action="/submit_entry" method="POST" class="box">
+          </div>
+          <div class="mb-3">
+            <label for="project_name" class="form-label">Project Name</label>
+            <input
+              name="project_name"
+              type="text"
+              class="form-control"
+              id="project_name"
+              placeholder="Enter project name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="summary" class="form-label">Summary</label>
+            <input
+              name="summary"
+              type="text"
+              class="form-control"
+              id="summary"
+              placeholder="Enter summary of task"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="programming_language" class="form-label"
+              >Programming Language</label
+            >
+            <select
+              name="programming_language"
+              id="programming_language"
+              class="form-control"
+              required
+            >
+              <option value="" disabled selected>
+                Select a programming language
+              </option>
+              <option value="css">CSS</option>
+              <option value="html">HTML</option>
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+              <option value="javascript">JavaScript</option>
+              <option value="c">C</option>
+              <option value="cpp">C++</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="time_started" class="form-label">Time Started</label>
+              <input
+                type="time"
+                id="time_started"
+                name="time_started"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="time_finished" class="form-label"
+                >Time Finished</label
+              >
+              <input
+                type="time"
+                id="time_finished"
+                name="time_finished"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="date" class="form-label">Date</label>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              name="description"
+              class="form-control"
+              id="description"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <input type="hidden" id="entry_timestamp" name="entry_timestamp" />
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        </form>
+      </div>
     </div>
-</div>
-{% endblock %}
+    <hr />
+    {% endblock %}
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      document.getElementById("date").value = new Date()
+        .toISOString()
+        .split("T")[0];
+      document.getElementById("entry_timestamp").value =
+        new Date().toISOString();
+    </script>
+  </body>
+</html>

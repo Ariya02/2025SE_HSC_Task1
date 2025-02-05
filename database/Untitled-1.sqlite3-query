@@ -1,0 +1,3 @@
+-- database: ./data_source.db
+
+ALTER TABLE developer_details DROP COLUMN phone_number;
