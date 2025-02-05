@@ -10,6 +10,8 @@ This progressive web app is for software developers and teams to securely log th
 - pip install SQLite3
 - pip install bcrypt
 - pip install flask_wtf
+- pip install qrcode
+- pip install pyotp
 
 ## Secure Features
 
@@ -47,6 +49,11 @@ Test Password: Adminuser1
 1. Input the login details above into the email and password fields then click 'Login'
 
 ![Login](https://github.com/user-attachments/assets/06e8126b-fd7f-4411-97b1-386cbb36c534)
+
+2. You will be redirected to a page with a QR code. Using an authenticator app, e.g. Microsoft Authenticator, add a new user and scan the QR code. A One Time Password (OTP) should be generated and inputted into the text field 'Enter the OTP'
+
+![QR](https://github.com/user-attachments/assets/17b7adf6-7758-4cc8-a9a1-d50fbe383055)
+
 -------------------------------------------------------------------------------------------------------
 ### Submit Diary Entry and View
 
@@ -118,6 +125,8 @@ To test the signup implementation, follow the instructions below using the follo
 
 ![image](https://github.com/user-attachments/assets/31b9fbd6-7557-4d9d-bf11-c7295d26c09b)
 
+3. You will be redirected to the login page, from there follow the instructions under 'Login'
+
 ------------------------------------------------------------------------------------------------------------------------
 ## Senior Software Engineer Requirements/Specifications
 
@@ -139,10 +148,10 @@ To test the signup implementation, follow the instructions below using the follo
 - Title and description (brief summary) in each diary entry
 - Security features
 - Intuitive UI
+- 2FA
 
 ### Aesthetics
 
-- Dark/light mode option
 - Nav bar
 - Customisable theme
 - Encryption of personal information
